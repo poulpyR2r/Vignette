@@ -3,20 +3,118 @@
 {# ... #}
 
 {% block body %}
+      
+
+
+        <div class="ContainerAllForm">
+
+
+        <div class="title">
+
+            <h1>Connecte-toi !</h1>
+            <img src="{{ asset('images/login.png')}}" alt="Login" width="500" height="500">
+
+        </div>
+
+            <form class="ContainerForm"action="{{ path('app_login')}}" method="post">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}">
+
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="_password">
+
+                <button class="buttonLoginForm" type="submit">login</button>
+            </form>
+
+        </div>
         {% if error %}
-            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class ="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-    <form action="{{ path('app_login')}}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password">
+<style>
 
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"> #}
 
-        <button type="submit">login</button>
-    </form>
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.error{
+    display :flex;
+    color : red;
+    justify-content : center;
+   
+}
+.ContainerForm{
+    margin-left : 1vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.ContainerForm input{
+    background-color : #E4D5E8  ;
+    width : 15vw;
+    padding: 10px;
+    border-radius: 12px;
+    border : none;
+}
+.ContainerForm label{
+   align-items: start;
+   font-size: 2vw;
+}
+
+
+.ContainerAllForm{
+    margin-top: 5vw;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.buttonLoginForm{
+    margin-top: 1vw;
+  width : 15vw;
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.buttonLoginForm:hover {
+  background-color: #374151;
+}
+
+.buttonLoginForm:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+
+
+
+</style>
+
 {% endblock %}
