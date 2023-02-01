@@ -8,11 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
-    public function index(): Response
+    #[Route('/', name: 'app_home')]
+    public function index(ManagerRegistry $doctrine): Response
     {
+        $photo = $doctrine->getRepository(PhotoFormType::class)->findAll();
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'vignettes' => $vignettes,
+           
         ]);
     }
 }
