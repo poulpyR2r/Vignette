@@ -9,9 +9,7 @@ ce que j'ai fait :
 - Upload image
 - Affichage image
 
+il manque les roles à intergrer 
 
 
-
-
-
-
+upload dispo sur /upload/photo
