@@ -37,6 +37,7 @@ security:
     # require ROLE_ADMIN for /admin*
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/upload/photo, roles: ROLE_USER}
 
 when@test:
     security:
